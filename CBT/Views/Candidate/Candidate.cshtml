@@ -1,0 +1,25 @@
+﻿@model CBT.Dtos.Candidatez
+@{
+    ViewBag.Title = "Candidate";
+}
+
+@using (Html.BeginForm("SaveCandidate", "Candidate"))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.Name, new { @class = "label label-warning" })
+        @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Email, new { @class = "label label-warning" })
+        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Mobile, new { @class = "label label-warning" })
+        @Html.TextBoxFor(m => m.Mobile, new { @class = "form-control" })
+    </div>
+    @*@Html.Hidden("Movie.Id", (Model.Moviez != null) ? Model.Id : 0)*@
+    @Html.HiddenFor(m => m.id)
+    @Html.AntiForgeryToken()
+    <button type="submit" class="btn btn-primary">Save Candidate</button>
+}
+

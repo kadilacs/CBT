@@ -1,0 +1,31 @@
+﻿@model CBT.Dtos.TestScorez
+@{
+    ViewBag.Title = "TestScore";
+}
+
+@using (Html.BeginForm("SaveTestScore", "TestScore"))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.Score, new { @class = "label label-warning" })
+        @Html.TextBoxFor(m => m.Score, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Date, new { @class = "label label-warning" })
+        @Html.TextBoxFor(m => m.Date, "{0:d MMM yyyy}", new { @class = "form-control" })
+    </div>
+    @*<div class="form-group">
+        @Html.LabelFor(m => m.CandidateId, new { @class = "label label-warning" })
+        @Html.DropDownListFor(m => m.CandidateId, new SelectList(Model.Candidatez, "id", "id"), "Select Candidate ID", new { @class = "form-control" })
+    </div>*@
+    <div class="form-group">
+        @Html.LabelFor(m => m.Name, new { @class = "label label-warning" })
+        @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+    </div>
+    @*@Html.Hidden("Movie.Id", (Model.Moviez != null) ? Model.Id : 0)*@
+    @Html.HiddenFor(m => m.id)
+    @Html.AntiForgeryToken()
+    <button type="submit" class="btn btn-primary">Save TestScore</button>
+}
+
+
+
